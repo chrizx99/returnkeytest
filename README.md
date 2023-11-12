@@ -9,7 +9,7 @@ To run this project, you will need the following:
 
 Installation and Setup
 - Clone the project repository:
-  git clone https://github.com/your-username/returnkey-technical-test.git
+  git clone https://github.com/chrizx99/returnkeytest.git
 - Navigate to the project directory:
   cd returnkey-technical-test
 - Install project dependencies:
