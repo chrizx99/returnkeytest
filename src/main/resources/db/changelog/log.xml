@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd"
+>
+    <changeSet id="1" author="demo">
+        <createTable tableName="ORDERS">
+            <column name="DB_ID" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="ORDER_ID" type="varchar(255)" />
+            <column name="EMAIL_ADDRESS" type="varchar(255)" />
+            <column name="SKU" type="varchar(255)" />
+            <column name="QUANTITY" type="int" />
+            <column name="PRICE" type="decimal(16, 2)" />
+            <column name="ITEM_NAME" type="varchar(255)" />
+        </createTable>
+        <createTable tableName="RETURNS">
+            <column name="RETURNS_ID" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="ORDER_ID" type="varchar(255)" />
+            <column name="EMAIL_ADDRESS" type="varchar(255)" />
+        </createTable>
+        <createTable tableName="RETURNS_ITEM">
+            <column name="RETURNS_ITEM_ID" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="RETURNS_ID" type="int" />
+            <column name="SKU" type="varchar(255)" />
+            <column name="QUANTITY" type="int" />
+            <column name="STATUS" type="varchar(255)" />
+        </createTable>
+        <addForeignKeyConstraint
+            baseTableName="RETURNS_ITEM"
+            baseColumnNames="RETURNS_ID"
+            constraintName="fk_returns_returns_item"
+            referencedTableName="RETURNS"
+            referencedColumnNames="RETURNS_ID"
+        />
+        <loadData tableName="ORDERS" file="data/orders.csv">
+            <column name="ORDER_ID" header="orderId" />
+            <column name="EMAIL_ADDRESS" header="emailAddress" />
+            <column name="SKU" header="sku" />
+            <column name="QUANTITY" header="quantity" />
+            <column name="PRICE" header="price" />
+            <column name="ITEM_NAME" header="itemName" />
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
