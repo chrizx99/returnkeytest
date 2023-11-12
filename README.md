@@ -19,6 +19,9 @@ Running the Application
 - Start the application:
   gradle bootRun
 
+Alternative method to Install and Run the Application is to open the project via IntelliJ IDEA downloadable via https://jetbrains.com/idea/download
+open the DemoApplication.kt and and run the Project
+
 Testing with Postman
 Import the Postman collection:
 a. Download the Postman collection from the project's postman-collection.json file.
