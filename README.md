@@ -20,7 +20,7 @@ Running the Application
   gradle bootRun
 
 Alternative method to Install and Run the Application is to open the project via IntelliJ IDEA downloadable via https://jetbrains.com/idea/download
-open the DemoApplication.kt and and run the Project
+open the DemoApplication.kt inside returnkeytest/src/main/kotlin/com.example.demo and and run the Project
 
 Testing with Postman
 Import the Postman collection:
